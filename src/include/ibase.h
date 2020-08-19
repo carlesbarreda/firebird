@@ -44,7 +44,9 @@
 #ifndef FIREBIRD_IBASE_H
 #define FIREBIRD_IBASE_H
 
+#ifndef FB_API_VER
 #define FB_API_VER 40
+#endif
 #define isc_version4
 
 #define  ISC_TRUE	1
@@ -63,6 +65,22 @@
 #else
 #define FB_API_DEPRECATED
 #endif
+
+#if defined LINUX && defined __GNUC__ && !(defined FB_API_DESIRED_VERSION)
+#define FB_CONCAT_AUX(A, B) A##B
+#define FB_CONCAT(A, B) FB_CONCAT_AUX(A, B)
+#define FB_API_DESIRED_VERSION FB_CONCAT(FB_API_VER_, FB_API_VER)
+#endif
+
+#if defined FB_API_DESIRED_VERSION && FB_API_VER > 0
+extern int FB_API_DESIRED_VERSION;
+
+int __attribute__((weak)) fb_api_ver()
+{
+	return FB_API_DESIRED_VERSION;
+}
+#endif
+
 
 #include "./firebird/impl/types_pub.h"
 

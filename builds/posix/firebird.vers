@@ -366,6 +366,10 @@ isc_to_sqlda
 isc_vtof
 isc_vtov
 
+# Implemented API versions
+
+FB_API_VER_40
+
 #-----------------
 # OTHER FUNCTIONS
 #-----------------

@@ -4014,3 +4014,11 @@ extern "C"
 	{
 	}
 } // extern "C"
+
+
+// Implemented API versions
+
+#ifdef FB_API_DESIRED_VERSION
+int FB_API_VER_40 = 40;
+#endif // FB_API_DESIRED_VERSION
+

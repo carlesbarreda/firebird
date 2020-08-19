@@ -26,6 +26,8 @@
 
 #include "firebird.h"
 
+#define FB_API_VER 0	// turn off version control
+
 #include <ibase.h>
 #include <firebird/UdrCppEngine.h>
 
